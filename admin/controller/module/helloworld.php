@@ -89,21 +89,13 @@ class ControllerModuleHelloworld extends Controller {
         } else {
             $data['helloworld_text_field'] = $this->config->get('helloworld_text_field');
         }   
-     
-        $data['modules'] = array();
-     
-        // This block parses the Module Settings such as Layout, Position,Status & Order Status to the view
-        if (isset($this->request->post['helloworld_module'])) {
-            $data['modules'] = $this->request->post['helloworld_module'];
-        } elseif ($this->config->get('helloworld_module')) { 
-            $data['modules'] = $this->config->get('helloworld_module');
+          
+        // This block parses the status (enabled / disabled)
+        if (isset($this->request->post['helloworld_status'])) {
+            $data['helloworld_status'] = $this->request->post['helloworld_status'];
+        } else {
+            $data['helloworld_status'] = $this->config->get('helloworld_status');
         }
-
-        // Loading the Design Layout Models     
-        $this->load->model('design/layout');
-        
-        // Getting all the Layouts available on system
-        $data['layouts'] = $this->model_design_layout->getLayouts();
         
         $data['header'] = $this->load->controller('common/header');
         $data['column_left'] = $this->load->controller('common/column_left');
