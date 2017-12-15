@@ -14,7 +14,7 @@ class ControllerExtensionModuleHelloworld extends Controller {
 	
 	public function index() {   // Default function 
 		
-		$this->load->language('module/helloworld'); // Loading the language file of helloworld 
+		$this->load->language('extension/module/helloworld'); // Loading the language file of helloworld 
 	 
 		$this->document->setTitle($this->language->get('heading_title')); // Set the title of the page to the heading title in the Language file i.e., Hello World
 	 
